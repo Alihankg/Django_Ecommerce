@@ -5,7 +5,11 @@
 <div class="row">
     {% for product in products %}
     <div class="col-lg-4">
-        <a href="#"><img class="thumbnail" src="{{product.imageURL}}" alt="Product Image" style=""></a>
+        <a href="#">
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="{{product.imageURL}}" alt="Product Image">
+            </div>
+        </a>
         <div class="box-element product">
             <h6><strong>{{ product.name }}</strong></h6>
             <hr>

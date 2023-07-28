@@ -9,30 +9,48 @@ h1,h2,h3,h4,h5,h6{
 .box-element{
 	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
 	background-color: #fff;
-	border-radius: 4px;
+	border-radius: 10px;
 	padding: 10px;
+}
+
+.thumbnail-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.thumbnail-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.thumbnail-container:hover::after {
+    opacity: 1;
+}
+
+.thumbnail-container:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .product{
 	border-radius: 0 0 10px 10px;
 }
 
-.thumbnail{
-	width: 100%;
-  height: 300px;
-  border-radius: 10px 10px 0 0;
-  object-fit: cover;
-  transition: all 0.3s ease;
-	-webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
-    -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
-    box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
-}
-
-/* Hover effect for the product image */
-.thumbnail:hover {
-  transform: scale(1.1);
-  border-radius: 10px 10px 10px 10px;
-}
 
 #cart-icon{
 	width:25px;
@@ -68,7 +86,7 @@ h1,h2,h3,h4,h5,h6{
 .cart-row{
 	display: flex;
     align-items: flex-stretch;
-    padding-bottom: 10px;
+
     margin-bottom: 10px;
     border-bottom: 1px solid #ececec;
 
@@ -78,13 +96,15 @@ h1,h2,h3,h4,h5,h6{
 	display: inline-block;
 	font-weight: 700;
 	padding-right:10px;
+	align-items: center;
 }
 
 .chg-quantity{
+	position: relative;
+	top: 5px;
 	width: 12px;
 	cursor: pointer;
 	display: block;
-	margin-top: 5px;
 	transition:.1s;
 }
 
