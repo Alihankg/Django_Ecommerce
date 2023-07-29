@@ -30,12 +30,12 @@
                 <div class="cart-row align-middle d-flex align-items-center">
                     <div style="flex:2;"><img class="row-image" src="{{item.product.imageURL}}" alt="product"></div>
                     <div style="flex:2;"><p>{{item.product.name}}</p></div>
-                    <div style="flex:1;"><p>${{item.product.price}}</p></div>
+                    <div style="flex:1;"><p>${{item.product.price|floatformat:2}}</p></div>
                     <div style="flex:1;">
                         <p class="quantity">{{item.quantity}}</p>
                         <div class="quantity">
-                            <img src="{% static 'images/arrow-up.png' %}" alt="" class="chg-quantity align-middle">
-                            <img src="{% static 'images/arrow-down.png' %}" alt="" class="chg-quantity align-middle">
+                            <img data-product="{{item.product.id}}" data-action="add" src="{% static 'images/arrow-up.png' %}" alt="" class="chg-quantity update-cart">
+                            <img data-product="{{item.product.id}}" data-action="remove" src="{% static 'images/arrow-down.png' %}" alt="" class="chg-quantity update-cart">
                         </div>
                     </div>
                     <div style="flex:1;">${{item.get_total|floatformat:2}}</div>
